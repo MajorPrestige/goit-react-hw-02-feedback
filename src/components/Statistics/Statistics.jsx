@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import s from './Statistics.module.css';
 
 const Statistics = ({
   good,
@@ -9,21 +10,22 @@ const Statistics = ({
   feedbackPercentage,
 }) => {
   return (
-    <ul>
-      <li>
-        Good: <span>{good}</span>
+    <ul className={s.list}>
+      <li className={s.item}>
+        Good: <span className={s.itemtext}>{good}</span>
       </li>
-      <li>
-        Neutral: <span>{neutral}</span>
+      <li className={s.item}>
+        Neutral: <span className={s.itemtext}>{neutral}</span>
       </li>
-      <li>
-        Bad: <span>{bad}</span>
+      <li className={s.item}>
+        Bad: <span className={s.itemtext}>{bad}</span>
       </li>
-      <li>
-        Total: <span>{totalfeedback}</span>
+      <li className={s.item}>
+        Total: <span className={s.itemtext}>{totalfeedback}</span>
       </li>
-      <li>
-        Positive feedback: <span>{feedbackPercentage}%</span>
+      <li className={s.item}>
+        Positive feedback:{' '}
+        <span className={s.itemtext}>%{feedbackPercentage}</span>
       </li>
     </ul>
   );
