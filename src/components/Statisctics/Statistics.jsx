@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import styled from '@emotion/styled';
 
 import PropTypes from 'prop-types';
@@ -11,9 +11,9 @@ class Statistics extends Component {
   };
 
   static propTypes = {
-    good: PropTypes.number,
-    neutral: PropTypes.number,
-    bad: PropTypes.number,
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
   };
 
   state = {
@@ -33,14 +33,17 @@ class Statistics extends Component {
   }
 
   countPositiveFeedbackPercentage() {
-    return Math.floor((this.state.good / this.countTotalFeedback()) * 100);
+    const feedback = Math.floor(
+      (this.state.good / this.countTotalFeedback()) * 100
+    );
+    return feedback ? feedback : 0;
   }
 
   render() {
     return (
       <main>
         <div>
-          <h1>Please leave feedback</h1>
+          <h2>Please leave feedback</h2>
           <ul>
             <li>
               <button name="good" type="button" onClick={this.handleIncrement}>
